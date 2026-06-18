@@ -151,9 +151,23 @@ section { padding: 100px 0; }
 }
 
 .nav.scrolled {
-  background: var(--green-dark);
-  box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.10);
   padding: 0 40px;
+}
+
+.nav.scrolled .nav-links a {
+  color: var(--green-dark);
+}
+.nav.scrolled .nav-links a:hover,
+.nav.scrolled .nav-links a.active {
+  color: var(--gold);
+}
+.nav.scrolled .nav-cta {
+  color: var(--green-dark) !important;
+}
+.nav.scrolled .nav-toggle span {
+  background: var(--green-dark);
 }
 
 .nav-inner {
@@ -217,42 +231,67 @@ section { padding: 100px 0; }
 .nav-toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 1100;
 }
 
 .nav-toggle span {
   display: block;
-  width: 26px; height: 2px;
+  width: 24px; height: 2px;
   background: var(--white);
-  transition: all 0.3s;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
 }
 
+.nav.scrolled .nav-toggle span { background: var(--green-dark); }
+
+/* Animate to X when open */
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Full-screen overlay menu */
 .nav-mobile {
-  display: none;
-  flex-direction: column;
+  position: fixed;
+  inset: 0;
   background: var(--green-dark);
-  padding: 20px 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   list-style: none;
-  gap: 4px;
+  gap: 0;
+  z-index: 1050;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
+
+.nav-mobile.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-mobile li { width: 100%; text-align: center; }
 
 .nav-mobile a {
   display: block;
-  padding: 12px 0;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 18px 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  transition: color 0.3s;
+  color: var(--white);
+  transition: color 0.2s;
 }
 
 .nav-mobile a:hover { color: var(--gold); }
-
-.nav-mobile.open { display: flex; }
 
 /* ============================================
    HERO
@@ -1938,8 +1977,9 @@ section { padding: 100px 0; }
   .courses-grid,
   .benefits-grid,
   .values-grid { grid-template-columns: 1fr; }
+  [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
 
-  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stats-inner { grid-template-columns: 1fr; }
 
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -1963,7 +2003,8 @@ section { padding: 100px 0; }
   .about-img-wrap img { height: 380px; }
   .about-img-badge { display: none; }
 
-  .mission-item { padding: 44px 28px; }
+  .mission-item { padding: 44px 28px; border-bottom: 3px solid var(--gold); }
+  .mission-item:last-child { border-bottom: none; }
 
   .page-hero { height: 360px; padding-bottom: 48px; }
 

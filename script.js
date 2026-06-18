@@ -20,7 +20,9 @@
 const nav = document.querySelector('.nav');
 if (nav) {
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
+    const isScrolled = window.scrollY > 60;
+    nav.classList.toggle('scrolled', isScrolled);
+    nav.classList.toggle('transparent', !isScrolled);
   });
 }
 
