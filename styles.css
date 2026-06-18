@@ -2046,7 +2046,7 @@ section { padding: 100px 0; }
   .destinations-grid,
   .courses-grid,
   .benefits-grid,
-  .values-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
 
   .stats-inner { grid-template-columns: 1fr; }
