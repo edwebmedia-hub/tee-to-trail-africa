@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & FAQs — Tee to Trail Africa</title>
+  <meta name="description" content="Get in touch to plan your bespoke golf tour. We also answer the most common questions about our packages, destinations, and logistics." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Tee to Trail Africa" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="local-courses.html">Local Courses</a></li>
+      <li><a href="international-courses.html">International</a></li>
+      <li><a href="contact.html" class="nav-cta active">Plan Your Trip</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <ul class="nav-mobile">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="local-courses.html">Local Courses</a></li>
+    <li><a href="international-courses.html">International</a></li>
+    <li><a href="contact.html">Plan Your Trip</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="margin-top:0;padding-top:80px;">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1752661497402-5b3b6743d66a?w=1600&q=90');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Contact & FAQs</div>
+      <h1>Plan Your Trip</h1>
+      <p>Tell us what you're dreaming of — we'll handle everything from there.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="enquiry-layout">
+
+      <!-- Left: Form -->
+      <div class="enquiry-form-col reveal">
+        <h2 class="section-title" style="font-size:1.9rem;margin-bottom:8px;">Tell Us About Your Trip</h2>
+        <p style="color:var(--text-mid);font-size:0.93rem;line-height:1.8;margin-bottom:40px;">Fill in what you know — we'll take it from there and be in touch within one business day.</p>
+
+        <form id="contactForm" novalidate>
+
+          <!-- Personal Details -->
+          <div class="form-section-heading">Personal Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" name="firstName" required placeholder="e.g. Werner" />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span class="req">*</span></label>
+              <input type="text" id="lastName" name="lastName" required placeholder="e.g. Loubser" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+27 66 000 0000" />
+            </div>
+          </div>
+
+          <!-- Tour Type -->
+          <div class="form-section-heading" style="margin-top:12px;">Tour Type <span class="req">*</span></div>
+          <div class="tour-type-grid" id="tourTypeGrid">
+            <label class="tour-type-card" for="tt-local">
+              <input type="radio" id="tt-local" name="tourType" value="Local South Africa" />
+              <div class="tour-type-inner">
+                <div class="tour-type-name">Local — South Africa</div>
+                <ul class="tour-type-features">
+                  <li>Garden Route</li>
+                  <li>Cape Winelands</li>
+                  <li>Cape Town</li>
+                </ul>
+              </div>
+              <div class="tour-type-footer">Best for first-timers &amp; groups</div>
+            </label>
+            <label class="tour-type-card" for="tt-intl">
+              <input type="radio" id="tt-intl" name="tourType" value="International" />
+              <div class="tour-type-inner">
+                <div class="tour-type-name">International</div>
+                <ul class="tour-type-features">
+                  <li>Vietnam, Sri Lanka, Indonesia</li>
+                  <li>Namibia, Zimbabwe &amp; more</li>
+                  <li>Fly &amp; play packages</li>
+                </ul>
+              </div>
+              <div class="tour-type-footer">Bucket-list destinations</div>
+            </label>
+            <label class="tour-type-card" for="tt-both">
+              <input type="radio" id="tt-both" name="tourType" value="Combined SA + International" />
+              <div class="tour-type-inner">
+                <div class="tour-type-name">Combined</div>
+                <ul class="tour-type-features">
+                  <li>SA courses + overseas leg</li>
+                  <li>Multi-country itinerary</li>
+                  <li>Fully custom-built</li>
+                </ul>
+              </div>
+              <div class="tour-type-footer">Ultimate golf adventure</div>
+            </label>
+          </div>
+
+          <!-- Destination sub-selection — shown dynamically based on tour type -->
+          <div class="dest-reveal" id="destReveal">
+            <div class="dest-reveal-inner">
+              <p class="dest-reveal-prompt">Which destinations interest you? <span style="color:var(--text-light);font-weight:400;">(tick all that apply)</span></p>
+
+              <div class="dest-group" id="destLocal">
+                <div class="dest-group-label">South Africa</div>
+                <div class="dest-chips">
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Garden Route" /><span>Garden Route</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Cape Winelands" /><span>Cape Winelands</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Cape Town" /><span>Cape Town</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Not sure – SA" /><span>Not sure yet</span></label>
+                </div>
+              </div>
+
+              <div class="dest-group" id="destIntl">
+                <div class="dest-group-label">International</div>
+                <div class="dest-chips">
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Vietnam" /><span>Vietnam</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Sri Lanka" /><span>Sri Lanka</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Indonesia" /><span>Indonesia</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Namibia" /><span>Namibia</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Zimbabwe/Zambia" /><span>Zimbabwe / Zambia</span></label>
+                  <label class="dest-chip"><input type="checkbox" name="dest" value="Not sure – International" /><span>Not sure yet</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trip Details -->
+          <div class="form-section-heading" style="margin-top:32px;">Trip Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="groupSize">Group Size</label>
+              <select id="groupSize" name="groupSize">
+                <option value="">Select group size</option>
+                <option>1–3 players</option>
+                <option>4–7 players</option>
+                <option>8–12 players</option>
+                <option>13+ players</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="duration">Trip Duration</label>
+              <select id="duration" name="duration">
+                <option value="">Select duration</option>
+                <option>3–4 days</option>
+                <option>5–7 days</option>
+                <option>8–10 days</option>
+                <option>10+ days</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dates">Preferred Travel Dates</label>
+              <input type="text" id="dates" name="dates" placeholder="e.g. March 2026 or flexible" />
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range (per person)</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option>Under R15 000</option>
+                <option>R15 000 – R30 000</option>
+                <option>R30 000 – R60 000</option>
+                <option>R60 000+</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Preferences -->
+          <div class="form-section-heading" style="margin-top:12px;">Preferences</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="accommodation">Accommodation Style</label>
+              <select id="accommodation" name="accommodation">
+                <option value="">Select preference</option>
+                <option>Luxury lodge / 5-star</option>
+                <option>Boutique hotel / guesthouse</option>
+                <option>Golf estate stay</option>
+                <option>Budget-friendly</option>
+                <option>No preference</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="transport">Transport</label>
+              <select id="transport" name="transport">
+                <option value="">Select preference</option>
+                <option>Car rental</option>
+                <option>Private transfers</option>
+                <option>Shuttle / group transport</option>
+                <option>No preference</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label for="message">Anything Else We Should Know?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Handicaps, non-golfers in the group, special occasions, dietary needs, dream courses — anything helps us plan better."></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-gold" style="padding:18px 48px;font-size:13px;">Send Enquiry</button>
+            <p class="form-submit-note">We'll respond within 1 business day.</p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Right: Info Sidebar -->
+      <div class="enquiry-sidebar reveal reveal-delay-2">
+
+        <div class="enquiry-sidebar-card">
+          <div class="esb-heading">What happens next</div>
+          <ul class="esb-steps">
+            <li>
+              <div class="esb-step-num">1</div>
+              <div>
+                <strong>We review your enquiry</strong>
+                <p>We read every detail so your response is specific to your group — not a generic reply.</p>
+              </div>
+            </li>
+            <li>
+              <div class="esb-step-num">2</div>
+              <div>
+                <strong>We get in touch within 24 hours</strong>
+                <p>Expect a call or message from Werner directly to discuss your trip in more detail.</p>
+              </div>
+            </li>
+            <li>
+              <div class="esb-step-num">3</div>
+              <div>
+                <strong>We build your itinerary</strong>
+                <p>A fully personalised proposal — courses, stays, transfers, and extras all mapped out for you.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="enquiry-sidebar-card" style="margin-top:24px;">
+          <div class="esb-heading">Why golfers choose us</div>
+          <ul class="esb-highlights">
+            <li>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><polyline points="6,10 9,13 14,7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Every itinerary is hand-built — no copy-paste packages
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><polyline points="6,10 9,13 14,7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Deep local knowledge of every course and region
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><polyline points="6,10 9,13 14,7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Tee times, transfers, stays &amp; dining all coordinated
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><polyline points="6,10 9,13 14,7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              Non-golfers catered for throughout the trip
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><polyline points="6,10 9,13 14,7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              5-star rated by every client we've taken on tour
+            </li>
+          </ul>
+        </div>
+
+        <div class="enquiry-sidebar-card enquiry-sidebar-dark" style="margin-top:24px;">
+          <div class="esb-heading" style="color:var(--gold);">Prefer to chat directly?</div>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;line-height:1.7;margin-bottom:20px;">Send Werner a WhatsApp — quick questions, rough ideas, or just to say hello. We're always happy to talk golf.</p>
+          <a href="https://wa.me/27660622028" class="btn btn-gold" target="_blank" rel="noopener" style="width:100%;justify-content:center;">WhatsApp Us</a>
+          <div class="esb-contact-list">
+            <div><span>📞</span><a href="tel:+27660622028" style="color:rgba(255,255,255,0.6);">+27 66 062 2028</a></div>
+            <div><span>✉️</span><a href="mailto:info@teetotrailafrica.com" style="color:rgba(255,255,255,0.6);">info@teetotrailafrica.com</a></div>
+            <div><span>📍</span><span style="color:rgba(255,255,255,0.6);">Wellington, South Africa</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FAQs
+══════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about planning a golf tour with Tee to Trail Africa.</p>
+    </div>
+
+    <div class="faq-tabs reveal">
+      <button class="faq-tab active" data-target="faq-general">General</button>
+      <button class="faq-tab" data-target="faq-groups">Group Tours</button>
+      <button class="faq-tab" data-target="faq-capetown">Cape Town</button>
+      <button class="faq-tab" data-target="faq-winelands">Cape Winelands</button>
+      <button class="faq-tab" data-target="faq-gardenroute">Garden Route</button>
+    </div>
+
+    <!-- General -->
+    <div id="faq-general" class="faq-group active reveal">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button class="faq-question">How are payments handled? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We offer flexible invoicing, split deposits, or individual payments on request. We'll always agree on a clear payment schedule before any bookings are confirmed so there are no surprises.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">How do you manage mixed skill levels? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We stagger tee times, set flights by pace and ability, and select tees and formats so that every player — from scratch handicapper to high-handicapper — genuinely enjoys the day. No one gets left behind.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">When should I book a full tour? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We recommend confirming your trip 8–12 weeks ahead for the best availability at top courses and preferred accommodation. Short-notice bookings are possible but may have limited options, especially during peak season.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Can the tours be customised? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolutely — every tour we design is tailored to your group. We'll work with you on destinations, course selection, accommodation style, additional activities, transport, and budget to create an itinerary that fits perfectly.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">What is the best time of year to visit South Africa for golf? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">The shoulder seasons — spring (September–October) and autumn (March–April) — offer the most pleasant conditions with mild weather and fewer crowds. That said, we run tours year-round and each season has its own charm.</div></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Group Tours -->
+    <div id="faq-groups" class="faq-group reveal">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button class="faq-question">What is a 'Boys on Tour' package? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">A social, golf-first group trip with relaxed evenings, fun optional activities, and tailored logistics — designed to feel effortless for everyone in the group. Think great courses by day and good company by night.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">What is the ideal group size? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We find that groups of 8–12 players hit the sweet spot for pricing, logistics, and atmosphere. That said, we cater to smaller groups from 4 players and larger corporate events too — just get in touch and we'll advise.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Can you handle stag or bachelor trips? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — we design responsible stag itineraries with great golf, private dining, and carefully curated activities. We keep it memorable for the right reasons.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Can non-golfers join the trip? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Absolutely. We add sightseeing, wine tours, spa treatments, and other activities so that non-golfers have a full and enjoyable programme while the group is on the course.</div></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cape Town -->
+    <div id="faq-capetown" class="faq-group reveal">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button class="faq-question">What should I pack for a Cape Town golf trip? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We recommend layers, sun protection, a windproof jacket, and comfortable walking shoes. Cape Town's weather can change quickly, especially on the Atlantic-facing courses where the wind can be a real factor in your game.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Are club rentals available in Cape Town? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — rental clubs and buggies can be pre-arranged at most courses. We always recommend bringing your own clubs if you can, but rental equipment is a solid option and we'll make sure it's sorted before you arrive.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Can non-golfers enjoy Cape Town? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Cape Town is one of the world's great cities — non-golfers will be spoilt for choice with Table Mountain, the V&A Waterfront, Boulders Beach penguins, wine tasting, whale watching, and world-class restaurants. We'll build a full programme for them.</div></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cape Winelands -->
+    <div id="faq-winelands" class="faq-group reveal">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button class="faq-question">Can we combine golf with wine tastings in the Winelands? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — Winelands itineraries naturally pair rounds with private wine tastings and estate lunches. Courses like Pearl Valley, De Zalze, and Devonvale are all set among working wine estates, making it effortless to combine the two.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Are private wine tastings available? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — we can arrange off-peak or private tastings and exclusive restaurant bookings at some of the Winelands' finest estates. These experiences are a highlight of any Winelands golf tour.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">What accommodation works best in the Winelands? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We typically recommend manor houses, boutique hotels, or private villas that are integrated into the wine estate experience. Staying on an estate adds a level of immersion that a standard hotel simply can't match.</div></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Garden Route -->
+    <div id="faq-gardenroute" class="faq-group reveal">
+      <ul class="faq-list">
+        <li class="faq-item">
+          <button class="faq-question">Is the Garden Route good for golf? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">It's one of South Africa's premier golf destinations — dramatic coastal and mountain scenery paired with a strong selection of quality courses, from Fancourt's three championship layouts to the clifftop drama of Pinnacle Point. It's ideal for multi-day tours.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">Do you handle transfers and logistics on the Garden Route? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes — we organise shuttles, inter-club timing, and accommodation logistics so your group can relax and focus on the golf. The Garden Route covers a lot of ground, and getting the logistics right makes a huge difference to the experience.</div></div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-question">How long should we spend on the Garden Route? <span class="faq-icon">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">We recommend 3–5 days for a solid sample of the region's best courses. Seven days or more gives you the freedom to add safaris at Addo or Gondwana, longer coastal stops, and time to explore towns like Knysna, Plettenberg Bay, and George properly.</div></div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"></div>
+        <p class="footer-desc">Bespoke golf tours across South Africa and beyond. We blend championship courses with authentic adventure so every trip becomes a story worth telling.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="local-courses.html">Local Courses</a></li>
+          <li><a href="international-courses.html">International Courses</a></li>
+          <li><a href="contact.html">Contact & FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Destinations</div>
+        <ul class="footer-links">
+          <li><a href="local-courses.html#garden-route">Garden Route</a></li>
+          <li><a href="local-courses.html#cape-winelands">Cape Winelands</a></li>
+          <li><a href="local-courses.html#cape-town">Cape Town</a></li>
+          <li><a href="international-courses.html#asia">Asia</a></li>
+          <li><a href="international-courses.html#africa">Africa</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact Us</div>
+        <div class="footer-contact-item"><span>📞</span><span><a href="tel:+27660622028" style="color:inherit;">+27 66 062 2028</a></span></div>
+        <div class="footer-contact-item"><span>✉️</span><span><a href="mailto:info@teetotrailafrica.com" style="color:inherit;">info@teetotrailafrica.com</a></span></div>
+        <div class="footer-contact-item"><span>📍</span><span>Wellington, South Africa</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Tee to Trail Africa. All rights reserved.</p>
+      <ul class="footer-bottom-links">
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/27660622028" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.528 5.849L.057 23.535a.75.75 0 0 0 .943.908l5.878-1.54A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.704 9.704 0 0 1-4.99-1.376l-.358-.214-3.717.975.993-3.63-.234-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  <span class="wa-float-label">Chat with us</span>
+</a>
+<script src="script.js"></script>
+</body>
+</html>
