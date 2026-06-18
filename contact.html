@@ -126,29 +126,189 @@
           <!-- Destination sub-selection — shown dynamically based on tour type -->
           <div class="dest-reveal" id="destReveal">
             <div class="dest-reveal-inner">
-              <p class="dest-reveal-prompt">Which destinations interest you? <span style="color:var(--text-light);font-weight:400;">(tick all that apply)</span></p>
+              <p class="dest-reveal-prompt">Which destinations interest you? <span style="color:var(--text-light);font-weight:400;">Select a region to choose specific courses.</span></p>
 
+              <!-- LOCAL SA -->
               <div class="dest-group" id="destLocal">
                 <div class="dest-group-label">South Africa</div>
-                <div class="dest-chips">
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Garden Route" /><span>Garden Route</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Cape Winelands" /><span>Cape Winelands</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Cape Town" /><span>Cape Town</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Not sure – SA" /><span>Not sure yet</span></label>
+
+                <div class="region-accordion">
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Garden Route" />
+                      <span class="region-acc-name">Garden Route</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select the courses you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Fancourt (The Links, Montagu & Outeniqua)" /><span>Fancourt</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Pinnacle Point Estate" /><span>Pinnacle Point Estate</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Simola Golf & Country Estate" /><span>Simola</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Pezula Championship Course" /><span>Pezula Championship</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Oubaai Golf Club" /><span>Oubaai Golf Club</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Goose Valley Golf Estate" /><span>Goose Valley</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Plettenberg Bay Country Club" /><span>Plettenberg Bay CC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Knysna Golf Club" /><span>Knysna Golf Club</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="George Golf Club" /><span>George Golf Club</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Mossel Bay Golf Club" /><span>Mossel Bay GC</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Cape Winelands" />
+                      <span class="region-acc-name">Cape Winelands</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select the courses you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Pearl Valley Golf Estates" /><span>Pearl Valley</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="De Zalze Golf Club" /><span>De Zalze</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Devonvale Golf & Wine Estate" /><span>Devonvale</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Erinvale Estate Hotel & Spa" /><span>Erinvale Estate</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Val de Vie Estate" /><span>Val de Vie</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Stellenbosch Golf Club" /><span>Stellenbosch GC</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Cape Town" />
+                      <span class="region-acc-name">Cape Town</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select the courses you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Royal Cape Golf Club" /><span>Royal Cape GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Steenberg Golf Club" /><span>Steenberg</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Clovelly Country Club" /><span>Clovelly CC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Atlantic Beach Golf Estate" /><span>Atlantic Beach</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Milnerton Golf Club" /><span>Milnerton GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Westlake Golf Club" /><span>Westlake GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Metropolitan Golf Club" /><span>Metropolitan GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="King David Mowbray Golf Club" /><span>King David Mowbray</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Rondebosch Golf Club" /><span>Rondebosch GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Somerset West Golf Club" /><span>Somerset West GC</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Not sure – SA" />
+                      <span class="region-acc-name">Not sure yet</span>
+                    </label>
+                  </div>
+
                 </div>
               </div>
 
+              <!-- INTERNATIONAL -->
               <div class="dest-group" id="destIntl">
                 <div class="dest-group-label">International</div>
-                <div class="dest-chips">
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Vietnam" /><span>Vietnam</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Sri Lanka" /><span>Sri Lanka</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Indonesia" /><span>Indonesia</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Namibia" /><span>Namibia</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Zimbabwe/Zambia" /><span>Zimbabwe / Zambia</span></label>
-                  <label class="dest-chip"><input type="checkbox" name="dest" value="Not sure – International" /><span>Not sure yet</span></label>
+
+                <div class="region-accordion">
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Vietnam" />
+                      <span class="region-acc-name">Vietnam</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select courses / areas you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Laguna Lang Co Golf Club" /><span>Laguna Lang Co</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Ba Na Hills Golf Club" /><span>Ba Na Hills</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Hoiana Shores Golf Club" /><span>Hoiana Shores</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Montgomerie Links Vietnam" /><span>Montgomerie Links</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Vietnam – Open to suggestions" /><span>Open to suggestions</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Sri Lanka" />
+                      <span class="region-acc-name">Sri Lanka</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select courses / areas you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Victoria Golf & Country Resort" /><span>Victoria Golf Resort</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Royal Colombo Golf Club" /><span>Royal Colombo GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Sri Lanka – Open to suggestions" /><span>Open to suggestions</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Indonesia" />
+                      <span class="region-acc-name">Indonesia</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select courses / areas you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Nirwana Bali Golf Club" /><span>Nirwana Bali</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="New Kuta Golf Bali" /><span>New Kuta Golf</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Handara Golf & Resort Bali" /><span>Handara Resort</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Indonesia – Open to suggestions" /><span>Open to suggestions</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Namibia" />
+                      <span class="region-acc-name">Namibia</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select courses / areas you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Windhoek Golf & Country Club" /><span>Windhoek GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Rossmund Golf Club" /><span>Rossmund GC</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Namibia – Open to suggestions" /><span>Open to suggestions</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Zimbabwe / Zambia / Botswana" />
+                      <span class="region-acc-name">Zimbabwe, Zambia &amp; Botswana</span>
+                      <span class="region-acc-arrow">›</span>
+                    </label>
+                    <div class="region-acc-body">
+                      <p class="region-acc-hint">Select courses / areas you're interested in:</p>
+                      <div class="course-check-grid">
+                        <label class="course-check"><input type="checkbox" name="course" value="Elephant Hills Golf Course Zimbabwe" /><span>Elephant Hills (Zimbabwe)</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Phakalane Golf Estate Botswana" /><span>Phakalane (Botswana)</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Livingstone Royal Golf Club Zambia" /><span>Livingstone Royal GC (Zambia)</span></label>
+                        <label class="course-check"><input type="checkbox" name="course" value="Victoria Falls region – Open to suggestions" /><span>Open to suggestions</span></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="region-acc-item">
+                    <label class="region-acc-header">
+                      <input type="checkbox" class="region-toggle" name="region" value="Not sure – International" />
+                      <span class="region-acc-name">Not sure yet</span>
+                    </label>
+                  </div>
+
                 </div>
               </div>
+
             </div>
           </div>
 

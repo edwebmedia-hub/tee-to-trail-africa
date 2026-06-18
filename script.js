@@ -101,6 +101,19 @@ document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(link => {
   });
 })();
 
+// Region accordion — expand courses when region checkbox is ticked
+document.querySelectorAll('.region-toggle').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const item = cb.closest('.region-acc-item');
+    if (cb.checked) {
+      item.classList.add('is-open');
+    } else {
+      item.classList.remove('is-open');
+      item.querySelectorAll('.course-check input').forEach(c => c.checked = false);
+    }
+  });
+});
+
 // Contact form submit
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
