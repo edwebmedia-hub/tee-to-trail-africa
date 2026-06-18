@@ -143,7 +143,7 @@ section { padding: 100px 0; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 0 40px;
-  transition: all 0.4s ease;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .nav.transparent {
@@ -445,7 +445,7 @@ section { padding: 100px 0; }
 }
 
 .stat-item {
-  padding: 44px 36px;
+  padding: 32px 24px;
   border-right: 1px solid rgba(255,255,255,0.08);
   text-align: center;
 }
@@ -2034,6 +2034,8 @@ section { padding: 100px 0; }
 
   .nav { padding: 0 20px; }
   .nav.scrolled { padding: 0 20px; }
+  .nav-inner { height: 60px; }
+  .nav-logo img { height: 42px; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
 
