@@ -870,7 +870,7 @@ section { padding: 100px 0; }
 .region-nav {
   background: var(--green-dark);
   position: sticky;
-  top: 72px;
+  top: 80px;
   z-index: 90;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
@@ -2036,6 +2036,7 @@ section { padding: 100px 0; }
   .nav.scrolled { padding: 0 20px; }
   .nav-inner { height: 60px; }
   .nav-logo img { height: 42px; }
+  .region-nav { top: 60px; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
 
