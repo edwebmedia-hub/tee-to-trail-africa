@@ -117,15 +117,52 @@ document.querySelectorAll('.region-toggle').forEach(cb => {
 // Contact form submit
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
     btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Message Sent ✓';
-      contactForm.reset();
-      setTimeout(() => { btn.textContent = 'Send Enquiry'; btn.disabled = false; }, 3000);
-    }, 1200);
+
+    const fd = new FormData(contactForm);
+    const courses = [...contactForm.querySelectorAll('input[name="course"]:checked')].map(c => c.value);
+
+    const payload = {
+      firstName:     fd.get('firstName'),
+      lastName:      fd.get('lastName'),
+      email:         fd.get('email'),
+      phone:         fd.get('phone'),
+      tourType:      fd.get('tourType'),
+      courses,
+      groupSize:     fd.get('groupSize'),
+      duration:      fd.get('duration'),
+      dates:         fd.get('dates'),
+      budget:        fd.get('budget'),
+      accommodation: fd.get('accommodation'),
+      transport:     fd.get('transport'),
+      message:       fd.get('message'),
+    };
+
+    try {
+      const res  = await fetch('/api/send-mail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        btn.textContent = 'Message Sent ✓';
+        contactForm.reset();
+        setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 4000);
+      } else {
+        alert(data.message);
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    } catch {
+      alert('Something went wrong. Please email us directly at info@teetotrailafrica.com');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
   });
 }
