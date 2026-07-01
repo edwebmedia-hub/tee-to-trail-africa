@@ -1713,15 +1713,23 @@ section { padding: 100px 0; }
 .esb-steps li strong {
   display: block;
   font-size: 0.88rem;
-  color: var(--white);
+  color: var(--green-dark);
   margin-bottom: 4px;
 }
 
 .esb-steps li p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.65);
+  color: var(--text-muted);
   line-height: 1.6;
   margin: 0;
+}
+
+.enquiry-sidebar-dark .esb-steps li strong {
+  color: var(--white);
+}
+
+.enquiry-sidebar-dark .esb-steps li p {
+  color: rgba(255,255,255,0.65);
 }
 
 .esb-highlights {
