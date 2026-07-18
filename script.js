@@ -2,6 +2,9 @@
    TEE TO TRAIL AFRICA — Global Scripts
    ============================================ */
 
+// Signal JS is active so CSS can safely apply the hidden .reveal state.
+document.documentElement.classList.add('js');
+
 // Region nav — active link tracking
 (function () {
   const regionLinks = document.querySelectorAll('.region-nav-link[data-region]');
@@ -31,22 +34,50 @@ const toggle = document.querySelector('.nav-toggle');
 const mobileNav = document.querySelector('.nav-mobile');
 if (toggle && mobileNav) {
   toggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
+    const open = mobileNav.classList.toggle('open');
     toggle.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 }
 
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-reveals.forEach(el => observer.observe(el));
+// Scroll reveal — guarded so content is never left permanently invisible.
+// Reduced motion shows everything; otherwise IntersectionObserver animates,
+// backed by a scroll-driven in-view check that works even where IO is flaky
+// (e.g. some in-app webviews) so nothing can get stranded at opacity:0.
+(function () {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  const reveal = el => el.classList.add('visible');
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reveals.forEach(reveal);
+    return;
+  }
+
+  // Reliable fallback: reveal any element once it enters the viewport.
+  let ticking = false;
+  const checkInView = () => {
+    ticking = false;
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    reveals.forEach(el => {
+      if (!el.classList.contains('visible') && el.getBoundingClientRect().top < vh - 40) reveal(el);
+    });
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(checkInView); } };
+
+  // Primary: IntersectionObserver (performant) when available.
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting) { reveal(e.target); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  checkInView();               // reveal whatever is already in view on load
+  setTimeout(checkInView, 1200); // catch late layout shifts / stalled IO
+})();
 
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(btn => {

@@ -1943,7 +1943,7 @@ section { padding: 100px 0; }
 
 .footer-copy {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.5);
 }
 
 .footer-bottom-links {
@@ -1954,7 +1954,7 @@ section { padding: 100px 0; }
 
 .footer-bottom-links a {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.5);
   transition: color 0.3s;
 }
 
@@ -1990,7 +1990,10 @@ section { padding: 100px 0; }
 /* ============================================
    SCROLL ANIMATIONS
    ============================================ */
-.reveal {
+/* Hidden state applies only once JS confirms it can reveal (html.js).
+   If script.js fails to load, .reveal stays fully visible — content is
+   never left permanently invisible. */
+.js .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -1999,6 +2002,10 @@ section { padding: 100px 0; }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 .reveal-delay-1 { transition-delay: 0.1s; }

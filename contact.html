@@ -6,6 +6,7 @@
   <title>Contact & FAQs — Tee to Trail Africa</title>
   <meta name="description" content="Get in touch to plan your bespoke golf tour. We also answer the most common questions about our packages, destinations, and logistics." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" />
 </head>
 <body>
 
@@ -21,7 +22,7 @@
       <li><a href="international-courses.html">International</a></li>
       <li><a href="contact.html" class="nav-cta active">Plan Your Trip</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="Menu">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -64,21 +65,21 @@
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name <span class="req">*</span></label>
-              <input type="text" id="firstName" name="firstName" required placeholder="e.g. Werner" />
+              <input type="text" id="firstName" name="firstName" autocomplete="given-name" required placeholder="e.g. Werner" />
             </div>
             <div class="form-group">
               <label for="lastName">Last Name <span class="req">*</span></label>
-              <input type="text" id="lastName" name="lastName" required placeholder="e.g. Loubser" />
+              <input type="text" id="lastName" name="lastName" autocomplete="family-name" required placeholder="e.g. Loubser" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email Address <span class="req">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com" />
             </div>
             <div class="form-group">
               <label for="phone">Phone / WhatsApp</label>
-              <input type="tel" id="phone" name="phone" placeholder="+27 66 000 0000" />
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+27 66 000 0000" />
             </div>
           </div>
 
@@ -638,7 +639,7 @@
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 Tee to Trail Africa. All rights reserved.</p>
       <ul class="footer-bottom-links">
-        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </div>
