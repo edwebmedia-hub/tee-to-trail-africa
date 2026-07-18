@@ -10,6 +10,21 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const RATE_MAX = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const hits = new Map();
+function rateLimited(ip) {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 500) hits.delete(hits.keys().next().value);
+  return recent.length > RATE_MAX;
+}
+
+// Strip CR/LF from any value that reaches an email header (prevents header injection).
+const clean = (s) => String(s || '').replace(/[\r\n]+/g, ' ').trim();
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', 'https://www.teetotrailafrica.com');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -22,15 +37,31 @@ module.exports = async function handler(req, res) {
     firstName, lastName, email, phone,
     tourType, courses,
     groupSize, duration, dates, budget, accommodation, transport,
-    message,
+    message, company, ts,
   } = req.body;
+
+  // Honeypot: bots fill the hidden field; drop silently with a fake success.
+  if (company) return res.status(200).json({ success: true });
+
+  // Min-fill-time: this form takes longer than 3s to complete; bots submit instantly.
+  if (ts && Date.now() - Number(ts) < 3000) return res.status(200).json({ success: true });
+
+  // Best-effort per-IP rate limit (per warm serverless instance).
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  if (rateLimited(ip)) {
+    return res.status(429).json({ success: false, message: 'Too many messages. Please try again in a few minutes.' });
+  }
 
   if (!firstName || !email) {
     return res.status(400).json({ success: false, message: 'Please fill in all required fields.' });
   }
 
+  if (String(message || '').length > 5000 || `${firstName || ''}${lastName || ''}`.length > 200) {
+    return res.status(400).json({ success: false, message: 'Message is too long.' });
+  }
+
   const name = `${firstName} ${lastName || ''}`.trim();
-  const subject = `Golf Tour Enquiry from ${name}`;
+  const subject = `Golf Tour Enquiry from ${clean(name)}`;
 
   const text = [
     'New tour enquiry from teetotrailafrica.com',
@@ -58,7 +89,7 @@ module.exports = async function handler(req, res) {
     await transporter.sendMail({
       from: '"Tee to Trail Website" <info@teetotrailafrica.com>',
       to: 'info@teetotrailafrica.com',
-      replyTo: email,
+      replyTo: clean(email),
       subject,
       text,
     });

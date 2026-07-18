@@ -148,6 +148,7 @@ document.querySelectorAll('.region-toggle').forEach(cb => {
 // Contact form submit
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
+  const formLoadedAt = Date.now();
   contactForm.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
@@ -172,6 +173,8 @@ if (contactForm) {
       accommodation: fd.get('accommodation'),
       transport:     fd.get('transport'),
       message:       fd.get('message'),
+      company:       (document.getElementById('company')?.value || '').trim(),
+      ts:            formLoadedAt,
     };
 
     try {

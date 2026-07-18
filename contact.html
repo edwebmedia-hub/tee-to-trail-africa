@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact & FAQs — Tee to Trail Africa</title>
   <meta name="description" content="Get in touch to plan your bespoke golf tour. We also answer the most common questions about our packages, destinations, and logistics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tee to Trail Africa" />
+  <meta property="og:title" content="Contact &amp; FAQs — Tee to Trail Africa" />
+  <meta property="og:description" content="Get in touch to plan your bespoke golf tour. We also answer the most common questions about our packages, destinations, and logistics." />
+  <meta property="og:url" content="https://www.teetotrailafrica.com/contact" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1596782680712-caf5530d2b3c?w=1200&amp;h=630&amp;fit=crop&amp;q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact &amp; FAQs — Tee to Trail Africa" />
+  <meta name="twitter:description" content="Get in touch to plan your bespoke golf tour. We also answer the most common questions about our packages, destinations, and logistics." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1596782680712-caf5530d2b3c?w=1200&amp;h=630&amp;fit=crop&amp;q=80" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="logo.png" />
 </head>
@@ -59,6 +69,12 @@
         <p style="color:var(--text-mid);font-size:0.93rem;line-height:1.8;margin-bottom:40px;">Fill in what you know — we'll take it from there and be in touch within one business day.</p>
 
         <form id="contactForm" novalidate>
+
+          <!-- Honeypot: off-screen for people, catches bots that fill every field -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="company">Company (leave this field empty)</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
 
           <!-- Personal Details -->
           <div class="form-section-heading">Personal Details</div>

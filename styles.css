@@ -2014,6 +2014,9 @@ section { padding: 100px 0; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
+/* Honeypot — kept in the layout for bots, moved off-screen for people */
+.hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
 /* ============================================
    RESPONSIVE
    ============================================ */
